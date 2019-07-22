@@ -1,0 +1,2 @@
+# BitMexLineNotifyBot
+ BitMexの資産を監視してLINEに通知するBotです
