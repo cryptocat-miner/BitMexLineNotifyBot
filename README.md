@@ -41,7 +41,7 @@
 * その他Pythonが動作するクラウドサービス、環境にコードを配置して稼働
 
 ## AWS Cloud9での設定方法
-24時間監視する場合はAWSのCloud9に配置する方法が安価で簡単です。
+24時間監視する場合はAWSのCloud9に配置する方法が無償利用枠を使え、安価で簡単です。
 まずはAWSアカウントを作成し、マネジメントコンソールにサインインします。
 
 ### Cloud9環境の作成・設定
@@ -109,7 +109,7 @@ sudo python3 -m pip install ccxt
 後はBitMexとLINE NotifyそれぞれのAPIキーをコピペすれば動かせます。
 
 ## LINE NotifyのAPIキー作成と設定
-LINE Nofityに自分のLINEアカウントでログインし、APIキーを作成します。  
+LINE Notifyに自分のLINEアカウントでログインし、APIキーを作成します。  
 [LINE Notify](https://notify-bot.line.me/ja/)
 
 右上の自分の名前 -> マイページ -> アクセストークンの発行(開発者向け) -> トークンを発行する  
