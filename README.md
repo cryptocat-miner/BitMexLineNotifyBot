@@ -172,3 +172,8 @@ LineNotifyBot.py を開き、その状態でCloud9画面上部真ん中のRunボ
 自分のLINEにbot起動通知が来ているか確認してください。
 
 <img src="https://github.com/cryptocat-miner/BitMexLineNotifyBot/blob/master/images/line_notify_1.jpg" width="320px" alt="LINE通知1">  
+
+## 使用ライブラリ
+ccxt (MIT License)  
+Copyright © 2017 Igor Kroitor  
+https://github.com/ccxt/ccxt  
