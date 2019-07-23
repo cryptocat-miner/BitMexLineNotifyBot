@@ -110,8 +110,7 @@ sudo python3 -m pip install ccxt
 後はBitMexとLINE NotifyそれぞれのAPIキーをコピペすれば動かせます。
 
 ## LINE NotifyのAPIキー作成と設定
-LINE Notifyに自分のLINEアカウントでログインし、APIキーを作成します。  
-[LINE Notify](https://notify-bot.line.me/ja/)
+[LINE Notify](https://notify-bot.line.me/ja/) に自分のLINEアカウントでログインし、APIキーを作成します。  
 
 右上の自分の名前 -> マイページ -> アクセストークンの発行(開発者向け) -> トークンを発行する  
 で任意のトークン名を入力し、通知を送信するトークルームを選択してください。  
@@ -129,7 +128,7 @@ lineNotifyToken = "LINE NotifyのAPIキーを入れてください"
 <img src="https://github.com/cryptocat-miner/BitMexLineNotifyBot/blob/master/images/token_generated.png" width="320px" alt="token generated">  
 
 ## BitMexのAPIキー発行・設定
-BitMexにログインし、API -> APIキーの管理 -> APIキーを作成 画面で任意の名前をつけてAPIキーを作成を押してください。  
+[BitMex](https://www.bitmex.com/) にログインし、API -> APIキーの管理 -> APIキーを作成 画面で任意の名前をつけてAPIキーを作成を押してください。  
 CIDRは特に不要、キーのアクセス許可は注文/注文キャンセルどちらでも構いません。出金にはチェックを入れない方が無難です。  
 2FAの設定をしている方は2要素トークン欄への入力を忘れないでください。  
 <img src="https://github.com/cryptocat-miner/BitMexLineNotifyBot/blob/master/images/bitmex_apikey.png" width="320px" alt="bitmex_apikey">  
