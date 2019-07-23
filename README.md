@@ -35,7 +35,8 @@
 <img src="https://github.com/cryptocat-miner/BitMexLineNotifyBot/blob/master/images/line_notify_4.jpg" width="320px" alt="LINE通知4">  
 
 
-## 稼働環境
+## 開発言語・稼働環境
+* 開発言語:Python
 * Python環境がインストールされた自身のPCにコードを配置して稼働(Visual Studioでも動作可能)
 * Cloud9(AWSのサービス)にコードを配置して稼働
 * その他Pythonが動作するクラウドサービス、環境にコードを配置して稼働
