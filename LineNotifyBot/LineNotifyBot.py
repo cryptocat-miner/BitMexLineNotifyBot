@@ -8,7 +8,6 @@ import ccxtWrapper
 import math
 import io
 
-import numpy
 import orderManager
 
 import LineNotify
