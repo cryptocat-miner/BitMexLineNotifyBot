@@ -33,9 +33,9 @@ def getOrderText(info):
 def getBalanceText(balance):
    message = ""
    cr = "\r\n"
-   total = "合計資産" + str(round(balance["total"], 4)) + " XBT" + cr
-   used = "使用済:" + str(round(balance["used"], 4)) + " XBT" + cr
-   free = "使用可能:" + str(round(balance["free"], 4)) + " XBT" + cr
+   total = "合計資産" + "{:.4f}".format(balance["total"]) + " XBT" + cr
+   used = "使用済:" + "{:.4f}".format(balance["used"]) + " XBT" + cr
+   free = "使用可能:" + "{:.4f}".format(balance["free"]) + " XBT" + cr
    
    message = total + used + free
     

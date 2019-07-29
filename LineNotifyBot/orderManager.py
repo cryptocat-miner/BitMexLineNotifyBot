@@ -56,23 +56,23 @@ class orderManager(ccxtWrapper.ccxtWrapper):
             if positions[0]["homeNotional"] != None:
                 self.btcAmount = abs(positions[0]["homeNotional"])
             if positions[0]["avgCostPrice"] != None:
-                self.averagePrice = round(positions[0]["avgCostPrice"], 2)
+                self.averagePrice = "{:.2f}".format(positions[0]["avgCostPrice"])
             if positions[0]["liquidationPrice"] != None:
                 self.liquidationPrice = positions[0]["liquidationPrice"]
             if positions[0]["maintMargin"] != None:
-                self.maintMargin = round(positions[0]["maintMargin"] * self.satoshiUnit, 4)
+                self.maintMargin = "{:.4f}".format(positions[0]["maintMargin"] * self.satoshiUnit)
             if positions[0]["realisedPnl"] != None and positions[0]["rebalancedPnl"] != None:
-                self.realisedPnl = round((positions[0]["realisedPnl"] + positions[0]["rebalancedPnl"]) * self.satoshiUnit, 4)
+                self.realisedPnl = "{:.4f}".format((positions[0]["realisedPnl"] + positions[0]["rebalancedPnl"]) * self.satoshiUnit)
             if positions[0]["unrealisedPnl"] != None:
-                self.unrealisedPnl = round(positions[0]["unrealisedPnl"] * self.satoshiUnit, 4)
+                self.unrealisedPnl = "{:.4f}".format(positions[0]["unrealisedPnl"] * self.satoshiUnit)
             if positions[0]["unrealisedRoePcnt"] != None:
-                self.unrealisedRoePcnt = round(positions[0]["unrealisedRoePcnt"] * 100, 2)
+                self.unrealisedRoePcnt = "{:.2f}".format(positions[0]["unrealisedRoePcnt"] * 100)
 
         balance = self.exchangeInstance.fetchBalance()
         if balance != None:
             # 起動時の一回目に資産情報を通知
             if self.balance == None:
-                LineNotify.PostMessage("監視botを起動しました\r\n資産は" + str(round(balance["total"], 4)) + "XBTです")
+                LineNotify.PostMessage("監視botを起動しました\r\n資産は" + "{:.4f}".format(balance["total"]) + "XBTです")
 
             self.balance = balance
 
@@ -125,7 +125,7 @@ class orderManager(ccxtWrapper.ccxtWrapper):
             if balance != None:
                 self.diffBalance = balance["total"] - self.totalBlance
                 self.totalBalance = balance["total"]
-                LineNotify.PostMessage("ポジションを決済しました\r\n今回の取引結果は" + str(round(self.diffBalance, 4)) + "XBTです\r\n現在の合計資産は" + str(round(self.totalBalance, 4)) + "XBTです")
+                LineNotify.PostMessage("ポジションを決済しました\r\n今回の取引結果は" + "{:.4f}".format(self.diffBalance) + "XBTです\r\n現在の合計資産は" + "{:.4f}".format(self.totalBalance) + "XBTです")
                 self.changeToNoPositionState()
             else:
                 LineNotify.PostMessage("ポジションを決済しました\r\nエラーが発生して資産情報は読めませんでした\r\n再度資産情報を読みます")
