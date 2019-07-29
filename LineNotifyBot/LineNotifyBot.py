@@ -27,6 +27,6 @@ openOrders = bitmex.fetchOpenOrders()
 while True:
     currentTime = datetime.utcnow()  # 現在時刻(UTC)
 
-	mTradeHistory.checkTradeHistory()
+    mTradeHistory.checkTradeHistory()
     mOrderManager.switchState()
     time.sleep(6)
