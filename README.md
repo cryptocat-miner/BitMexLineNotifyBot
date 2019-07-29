@@ -34,6 +34,17 @@
 <img src="https://github.com/cryptocat-miner/BitMexLineNotifyBot/blob/master/images/line_notify_3.jpg" width="320px" alt="LINE通知3">
 <img src="https://github.com/cryptocat-miner/BitMexLineNotifyBot/blob/master/images/line_notify_4.jpg" width="320px" alt="LINE通知4">  
 
+### 取引履歴通知の追加
+資産情報の他に取引履歴を通知するようにしました。
+Funding情報も通知します。
+* 方向:ショート/ロング
+* タイプ:成行/指値/ストップ成行/利食い成行/利食い指値/精算
+* 取引量
+* 取引価格:成行などで複数回に分かれる場合は1回にまとめて平均価格を通知する
+* 取引手数料:+/-
+  
+<img src="https://github.com/cryptocat-miner/BitMexLineNotifyBot/blob/master/images/trade_notify.jpg" width="320px" alt="取引通知">  
+
 
 ## 開発言語・稼働環境
 * 開発言語:Python
