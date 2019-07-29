@@ -68,6 +68,20 @@ class ccxtWrapper:
                 balance = None
 
         return balance
+    
+    def fetchMyTrades(self, since, limit):
+        trades = None
+        symbol = "BTC/USD"
+        print("fetchTarde()")
+        try:
+            #"reverse":Trueで新しい順に配列の最後から詰められる
+            trades = self.__bitmex.fetch_my_trades(symbol, since=since, limit=limit, params={"reverse": True})
+            #listの"datetime"をキーにreverseする事で配列の最初(index=0)からソートする
+            trades.sort(key=lambda x: x["datetime"],reverse=True)
+        except Exception as error:
+            print(error)
+            trades = None
+        return trades
 
     # 注文
     def Order(self, type: str, side: str, amount: float, price: float, params: dict):
@@ -76,17 +90,13 @@ class ccxtWrapper:
         print("Order()")
         try:
             if type == self.ORDER_TYPE_LIMIT:
-                order = self.__bitmex.create_order(
-                    symbol, type, side, amount, price, params)
+                order = self.__bitmex.create_order(symbol, type, side, amount, price, params)
             elif type == self.ORDER_TYPE_MARKET:
-                order = self.__bitmex.create_order(
-                    symbol, type, side, amount, None)
+                order = self.__bitmex.create_order(symbol, type, side, amount, None)
             elif type == self.ORDER_TYPE_STOP_MARKET:
-                order = self.__bitmex.create_order(
-                    symbol, type, side, amount, None, params)
+                order = self.__bitmex.create_order(symbol, type, side, amount, None, params)
             elif type == self.ORDER_TYPE_STOP_LIMIT:
-                order = self.__bitmex.create_order(
-                    symbol, type, side, amount, price, params)
+                order = self.__bitmex.create_order(symbol, type, side, amount, price, params)
 
             # for orderSingle in order:
             #    print(str(orderSingle) + ":" + str(order[str(orderSingle)]))
@@ -149,8 +159,7 @@ class ccxtWrapper:
     def privatePostPositionLeverage(self, leverage: int):
         print("privatePostPositionLeverage()")
         try:
-            self.__bitmex.private_post_position_leverage(
-                {"symbol": "XBTUSD", "leverage": str(leverage)})
+            self.__bitmex.private_post_position_leverage({"symbol": "XBTUSD", "leverage": str(leverage)})
         except Exception as error:
             print(error)
             # if str(error).find("HTTPSConnectionPool") == -1:
@@ -165,8 +174,7 @@ class ccxtWrapper:
             unixTime = calendar.timegm(now.utctimetuple())  # Unix時間に変換
             since = (unixTime - 60 * since) * 1000  # 10分前のUnix時間算出→ms単位に変換
 
-            ohlcv = self.__bitmex.fetch_ohlcv(
-                "BTC/USD", period, since, limit=500)
+            ohlcv = self.__bitmex.fetch_ohlcv("BTC/USD", period, since, limit=500)
         except Exception as error:
             print(error)
             if str(error).find("HTTPSConnectionPool") == -1:
