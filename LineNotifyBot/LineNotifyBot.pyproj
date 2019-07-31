@@ -26,6 +26,7 @@
     <Compile Include="LineNotifyBot.py" />
     <Compile Include="orderInfo.py" />
     <Compile Include="orderManager.py" />
+    <Compile Include="tradeHistory.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
