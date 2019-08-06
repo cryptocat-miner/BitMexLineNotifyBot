@@ -80,12 +80,12 @@ Instance typeはt2.microだと無償利用できるはずです。
 以下のファイルをCloud9にドラッグ&ドロップするか、上のメニューバーから  
 File -> Upload Local Files...  
 を使ってアップロードします。  
-ccxtWrapper.py  
-LineNotify.py  
-LineNotifyBot.py  
-orderInfo.py  
-orderManager.py  
-tradeHistory.py  
+* ccxtWrapper.py  
+* LineNotify.py  
+* LineNotifyBot.py  
+* orderInfo.py  
+* orderManager.py  
+* tradeHistory.py  
 
 ### Python3設定
 右上の歯車を押してプロジェクトの設定を行います。  
