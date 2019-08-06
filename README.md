@@ -85,6 +85,7 @@ LineNotify.py
 LineNotifyBot.py  
 orderInfo.py  
 orderManager.py  
+tradeHistory.py  
 
 ### Python3設定
 右上の歯車を押してプロジェクトの設定を行います。  
