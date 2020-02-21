@@ -10,9 +10,9 @@ class tradeHistory(ccxtWrapper.ccxtWrapper):
     latestTradeHistory = None
     tradeHistoryList = list()
 
-    def __init__(self, instance:ccxtWrapper.ccxtWrapper):
+    def __init__(self, instance: ccxtWrapper.ccxtWrapper):
         self.exchange = instance
-        self.tradeHistory = self.exchange.fetchMyTrades(since=None,limit=50)
+        self.tradeHistory = self.exchange.fetchMyTrades(since=None, limit=50)
 
     def checkTradeHistory(self):
         tradeHistory = self.exchange.fetchMyTrades(since=None, limit=50)
@@ -51,8 +51,7 @@ class tradeHistory(ccxtWrapper.ccxtWrapper):
                             tradeHistoryItem.feeRate = trade["fee"]["rate"]
                             tradeHistoryItem.side = trade["side"]
                             tradeHistoryItem.orderType = trade["type"]
-                            
-                            
+
                     for trade in self.tradeHistoryList:
                         if trade.execType == "Trade":
                             self.sendTradeMessage(amount=trade.amount, price=trade.averagePrice, feeCost=trade.feeCost, side=trade.side, orderType=trade.orderType, text=trade.text)
@@ -63,7 +62,7 @@ class tradeHistory(ccxtWrapper.ccxtWrapper):
             self.latestTradeHistory = self.tradeHistory[0]
             self.tradeHistoryList.clear()
 
-    def sendTradeMessage(self, amount:int, price:float, feeCost:float, side:str, orderType:str, text:str):
+    def sendTradeMessage(self, amount: int, price: float, feeCost: float, side: str, orderType: str, text: str):
         message = "取引情報を通知します\r\n"
         if side == "buy":
             message += "方向:ロング\r\n"
@@ -92,7 +91,7 @@ class tradeHistory(ccxtWrapper.ccxtWrapper):
 
         LineNotify.PostMessage(message)
 
-    def sendFundingMessage(self, amount:int, price:float, feeCost:float, feeRate:float):
+    def sendFundingMessage(self, amount: int, price: float, feeCost: float, feeRate: float):
         message = "Funding情報を通知します\r\n"
         message += "数量:" + str(amount) + "\r\n"
         message += "執行価格:" + "{:.1f}".format(price) + "\r\n"
@@ -102,7 +101,6 @@ class tradeHistory(ccxtWrapper.ccxtWrapper):
             message += "Funding手数料:+" + "{:.4f}".format(abs(feeCost)) + " XBT(" + "{:.4f}".format(feeRate * 100) + "%)"
 
         LineNotify.PostMessage(message)
-
 
     class tradeHistoryItem:
         execType = None

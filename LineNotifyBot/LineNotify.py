@@ -18,7 +18,6 @@ def PostImageFile(message: str, imageFile: io.BytesIO):
     payload = {"message": "\r\n" + message}
     files = {"imageFile": imageFile}
     try:
-        requests.post(url=lineNotifyApi, data=payload,
-                      headers=headers, files=files)
+        requests.post(url=lineNotifyApi, data=payload, headers=headers, files=files)
     except Exception as error:
         print(error)
