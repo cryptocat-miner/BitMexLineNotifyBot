@@ -17,7 +17,7 @@ class tradeHistory(ccxtWrapper.ccxtWrapper):
     def checkTradeHistory(self):
         tradeHistory = self.exchange.fetchMyTrades(since=None, limit=50)
 
-        if tradeHistory != None:
+        if tradeHistory != None and len(tradeHistory) > 0:
             if self.latestTradeHistory != None:
                 if self.latestTradeHistory["id"] != tradeHistory[0]["id"]:
                     tradeHistoryItem = self.tradeHistoryItem()
